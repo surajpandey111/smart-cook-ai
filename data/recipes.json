@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Veg Masala Omelette",
+    "ingredients": ["eggs", "onion", "tomato", "green chili", "capsicum", "salt", "oil"],
+    "tools": ["stovetop", "pan"],
+    "tags": ["eggetarian", "quick", "indian"],
+    "minutes": 10,
+    "servings": 1,
+    "steps": [
+      "Beat eggs with salt.",
+      "Sauté chopped onion, tomato, chili, capsicum.",
+      "Add eggs, cook, fold, and serve."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Paneer Tikka Wrap",
+    "ingredients": ["paneer", "yogurt", "spices", "onion", "capsicum", "roti"],
+    "tools": ["stovetop", "pan"],
+    "tags": ["vegetarian", "indian", "lunch"],
+    "minutes": 20,
+    "servings": 2,
+    "steps": [
+      "Marinate paneer in yogurt + spices.",
+      "Sauté with onion and capsicum.",
+      "Wrap in roti and serve."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Chickpea Salad",
+    "ingredients": ["boiled chickpeas", "cucumber", "tomato", "onion", "lemon", "salt"],
+    "tools": ["bowl", "knife"],
+    "tags": ["vegan", "gluten-free", "quick"],
+    "minutes": 8,
+    "servings": 2,
+    "steps": [
+      "Chop veggies.",
+      "Mix with chickpeas, lemon, salt.",
+      "Toss and serve."
+    ]
+  }
+]
