@@ -18,50 +18,50 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- Custom CSS for Black Background and Dark Theme ---
+# --- Custom CSS for White Background and Black Text ---
 st.markdown(
     """
     <style>
     .main {
-        background-color: #000000;
-        color: #ffffff;
+        background-color: #ffffff;
+        color: #000000;
         font-family: 'Helvetica', sans-serif;
     }
     .stApp {
-        background-color: #000000;
+        background-color: #ffffff;
     }
     .title {
         text-align: center;
         font-size: 40px;
         font-weight: bold;
-        color: #ffffff;
+        color: #000000;
         padding: 20px 0;
-        border-bottom: 1px solid #333333;
+        border-bottom: 1px solid #e2e8f0;
     }
     .section-header {
         font-size: 24px;
         font-weight: bold;
-        color: #ffffff;
+        color: #000000;
         margin-bottom: 10px;
     }
     .recipe-section {
-        color: #ffffff;
+        color: #000000;
     }
     .footer {
         text-align: center;
         font-size: 12px;
-        color: #a0a0a0;
+        color: #4a5568;
         padding: 10px 0;
-        border-top: 1px solid #333333;
+        border-top: 1px solid #e2e8f0;
         margin-top: 20px;
     }
     button {
-        background-color: #4a5568;
+        background-color: #2d3748;
         color: white;
     }
     pre, code {
-        color: #ffffff !important;
-        background-color: #2d3748 !important;
+        color: #000000 !important;
+        background-color: #edf2f7 !important;
     }
     </style>
     """,
@@ -72,7 +72,7 @@ st.markdown(
 st.markdown('<div class="title">Agentic AI System for Smart Personal Cooking Assistant</div>', unsafe_allow_html=True)
 
 # --- Credits Section ---
-st.markdown('<p style="text-align: center; color: #a0a0a0;">Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b>Dr. Sukhendra Singh</b></p>', unsafe_allow_html=True)
+st.markdown('<p style="text-align: center; color: #4a5568;">Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b>Dr. Sukhendra Singh</b></p>', unsafe_allow_html=True)
 
 # --- Cache LLM response ---
 @lru_cache(maxsize=100)
