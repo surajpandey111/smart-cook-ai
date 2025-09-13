@@ -1,7 +1,9 @@
-import os, json, base64
+import os
+import json
 import streamlit as st
 from dotenv import load_dotenv
 from typing import Set
+from functools import lru_cache
 
 from utils.llm import chat
 from utils.retrieval import load_recipes, search
@@ -16,61 +18,73 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- Helper to encode floral image as Base64 ---
-def get_base64_image(image_path):
-    with open(image_path, "rb") as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-# Encode floral background
-floral_base64 = get_base64_image("data/images/floral.jpg")
-
-# --- Custom CSS for Theme (Floral Header) ---
+# --- Custom CSS for Black Background and Dark Theme ---
 st.markdown(
-    f"""
+    """
     <style>
-    .main-title {{
-        background: url("data:image/jpg;base64,{floral_base64}") no-repeat center;
-        background-size: cover;
-        padding: 30px;
-        border-radius: 12px;
+    .main {
+        background-color: #000000;
+        color: #ffffff;
+        font-family: 'Helvetica', sans-serif;
+    }
+    .stApp {
+        background-color: #000000;
+    }
+    .title {
         text-align: center;
-        color: black;
-        font-size: 32px;
+        font-size: 40px;
         font-weight: bold;
-        box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
-    }}
+        color: #ffffff;
+        padding: 20px 0;
+        border-bottom: 1px solid #333333;
+    }
+    .section-header {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+    .recipe-section {
+        color: #ffffff;
+    }
+    .footer {
+        text-align: center;
+        font-size: 12px;
+        color: #a0a0a0;
+        padding: 10px 0;
+        border-top: 1px solid #333333;
+        margin-top: 20px;
+    }
+    button {
+        background-color: #4a5568;
+        color: white;
+    }
+    pre, code {
+        color: #ffffff !important;
+        background-color: #2d3748 !important;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
 # --- Header / Title Section ---
-st.markdown(
-    '<div class="main-title">🍳 Agentic AI System for Smart Personal Cooking Assistant</div>',
-    unsafe_allow_html=True
-)
+st.markdown('<div class="title">Agentic AI System for Smart Personal Cooking Assistant</div>', unsafe_allow_html=True)
 
-# --- Images of Developer, Flower, and Mentor ---
-col1, col2, col3 = st.columns([1, 1, 1])
+# --- Credits Section ---
+st.markdown('<p style="text-align: center; color: #a0a0a0;">Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b>Dr. Sukhendra Singh</b></p>', unsafe_allow_html=True)
 
-with col1:
-    st.image("data/images/suraj.jpg", caption="Suraj Kumar Pandey (Developer)", width=220)
+# --- Cache LLM response ---
+@lru_cache(maxsize=100)
+def cached_chat(system_prompt, user_prompt):
+    return chat(system_prompt, user_prompt)
 
-with col2:
-    st.image("data/images/flower.jpg", caption="", width=220)  # Flower in the middle
-
-with col3:
-    st.image("data/images/mentor.jpg", caption="Dr. Sukhendra Singh (Mentor)", width=220)
-
-# Credits
-st.write("Developed by **Suraj Kumar Pandey** under mentorship of **Dr. Sukhendra Singh**")
-
-# --- Sidebar: user profile ---
-st.sidebar.header("👤 User Profile")
+# --- Sidebar: User Profile ---
+st.sidebar.header("User Profile")
+ethnicity = st.sidebar.selectbox("Cuisine Preference", ["Global", "Indian"], index=0, help="Select 'Indian' for regional Indian recipes or 'Global' for worldwide options including Indian.")
 diet = st.sidebar.selectbox("Diet", ["vegetarian", "eggetarian", "vegan", "non-veg"], index=0)
 allergies = st.sidebar.multiselect("Allergies", ["nuts", "gluten", "dairy", "eggs"])
-dislikes = st.sidebar.text_input("Dislikes (comma separated)", "")
+dislikes = st.sidebar.text_input("Dislikes (comma separated)", "").lower().split(",") if st.sidebar.text_input("Dislikes (comma separated)", "") else []
 tools = st.sidebar.multiselect(
     "Available Tools",
     ["stovetop", "microwave", "oven", "pan", "pressure cooker", "airfryer", "knife", "bowl"],
@@ -79,22 +93,22 @@ tools = st.sidebar.multiselect(
 minutes = st.sidebar.slider("Max cooking time (minutes)", 5, 120, 30)
 servings = st.sidebar.slider("Servings", 1, 10, 2)
 
-# --- Main: inventory input ---
-st.write("Type your **fridge/pantry inventory** (comma separated), then click *Find Recipes*.")
-
+# --- Main: Inventory Input ---
+st.markdown('<div class="section-header">Inventory Input</div>', unsafe_allow_html=True)
+st.write("Enter your fridge/pantry items (comma-separated) and click 'Find Recipes'.")
 inventory_text = st.text_area("Inventory", "paneer, yogurt, onion, capsicum, roti, tomato, lemon")
 inventory = set([x.strip().lower() for x in inventory_text.split(",") if x.strip()])
 
 if st.button("🔎 Find Recipes"):
     # 1) PLAN
-    user_plan = f"User wants recipes using {', '.join(inventory)} within {minutes} minutes for {servings} servings."
+    user_plan = f"User wants {ethnicity.lower()} recipes using {', '.join(inventory)} within {minutes} minutes for {servings} servings, avoiding dislikes: {dislikes}."
 
     # 2) RETRIEVE
     ids, sims = search(" ".join(inventory))
     all_recipes = {r["id"]: r for r in load_recipes()}
     candidates = [all_recipes[i] for i in ids if i in all_recipes]
 
-    # 3) CRITIQUE + FILTER (diet/allergens/time/tools)
+    # 3) CRITIQUE + FILTER (diet/allergens/time/tools/cuisine/dislikes)
     filtered = []
     for r in candidates:
         if r.get("minutes", 9999) > minutes:
@@ -103,10 +117,14 @@ if st.button("🔎 Find Recipes"):
             continue
         if violates_allergens(r["ingredients"], set(allergies)):
             continue
+        if ethnicity == "Indian" and "indian" not in r.get("tags", []):
+            continue
+        if any(d in [i.lower() for i in r["ingredients"]] for d in dislikes):
+            continue
         filtered.append(r)
 
     if not filtered:
-        st.warning("No perfect matches; showing closest candidates with adaptation.")
+        st.warning("No perfect matches found. Showing closest candidates with adaptations.")
         filtered = candidates
 
     # 4) SUBSTITUTIONS
@@ -119,13 +137,14 @@ if st.button("🔎 Find Recipes"):
     # 5) LLM RANK + ADAPT
     system = """You are a helpful kitchen assistant. 
 Given (inventory, profile, recipe), score suitability 0-100, propose substitutions, 
-adapt steps for available tools/time/servings, and explain briefly.
+adapt steps for available tools/time/servings, and explain briefly, considering dislikes.
 Return STRICT JSON with keys: score, substituted_ingredients (dict), adapted_steps (list), reason (string)."""
 
     results = []
     for r, subs, missing in ranked_payload:
         user = f"""
 PROFILE:
+- ethnicity: {ethnicity}
 - diet: {diet}
 - allergies: {allergies}
 - dislikes: {dislikes}
@@ -147,11 +166,10 @@ SUGGESTED_SUBS_FROM_RULES: {subs}
 MISSING_INGREDIENTS: {missing}
 """
         try:
-            txt = chat(system, user)
-            data = json.loads(txt)   # parse LLM response as JSON
+            txt = cached_chat(system, user)
+            data = json.loads(txt)
             results.append((r, data))
         except Exception as e:
-            # fallback minimal answer
             results.append((r, {
                 "score": 50,
                 "substituted_ingredients": subs,
@@ -163,13 +181,14 @@ MISSING_INGREDIENTS: {missing}
     seen: Set[str] = set()
     results.sort(key=lambda x: x[1].get("score", 0), reverse=True)
 
+    st.markdown('<div class="section-header">Recommended Recipes</div>', unsafe_allow_html=True)
     for r, data in results:
         if r['title'] in seen:
-            continue  # skip duplicates
+            continue
         seen.add(r['title'])
 
-        with st.container(border=True):
-            st.subheader(f"{r['title']} — score {data.get('score')}")
+        with st.container():
+            st.subheader(f"{r['title']} (Score: {data.get('score')})")
             col1, col2 = st.columns(2)
             with col1:
                 st.markdown("**Ingredients**")
@@ -178,19 +197,11 @@ MISSING_INGREDIENTS: {missing}
                     st.markdown("**Substitutions**")
                     st.json(data["substituted_ingredients"])
             with col2:
-                st.markdown("**Why this recipe**")
-                st.write(data.get("reason",""))
+                st.markdown("**Why This Recipe?**")
+                st.write(data.get("reason", ""))
                 st.markdown("**Adapted Steps**")
                 for i, step in enumerate(data.get("adapted_steps", r["steps"]), 1):
                     st.write(f"{i}. {step}")
 
 # --- Footer ---
-st.markdown(
-    """
-    <hr>
-    <div style="text-align: center; font-size: 14px; color: gray;">
-        © 2025 Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b>Dr. Sukhendra Singh</b>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown('<div class="footer">© 2025 Agentic AI System for Smart Personal Cooking Assistant</div>', unsafe_allow_html=True)
