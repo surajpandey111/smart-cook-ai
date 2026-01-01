@@ -72,7 +72,7 @@ st.markdown(
 st.markdown('<div class="title">Agentic AI System for Smart Personal Cooking Assistant</div>', unsafe_allow_html=True)
 
 # --- Credits Section ---
-st.markdown('<p style="text-align: center; color: #4a5568;">Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b>Dr.Sukhendra Singh Sir</b></p>', unsafe_allow_html=True)
+st.markdown('<p style="text-align: center; color: #4a5568;">Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b> Dr.Sukhendra Singh Sir </b></p>', unsafe_allow_html=True)
 
 # --- Cache LLM response ---
 @lru_cache(maxsize=100)
@@ -206,4 +206,5 @@ MISSING_INGREDIENTS: {missing}
 # --- Footer ---
 
 st.markdown('<div class="footer">© 2025 Agentic AI System for Smart Personal Cooking Assistant</div>', unsafe_allow_html=True)
+
 
