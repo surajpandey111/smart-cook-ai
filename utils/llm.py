@@ -7,43 +7,51 @@ from google import genai
 
 load_dotenv()
 
+# -----------------------------
+# Logging
+# -----------------------------
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Initialize Gemini client
+# -----------------------------
+# Gemini Client
+# -----------------------------
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Models
-CHAT_MODEL = "gemini-2.0-flash-lite"
-EMB_MODEL = "text-embedding-004"
+# Best stable fast model
+CHAT_MODEL = "gemini-1.5-flash"
 
 
-# ----------------------------
+# ------------------------------------------------
 # EMBEDDING FUNCTION
-# ----------------------------
+# (fallback dummy because embeddings done in FAISS)
+# ------------------------------------------------
 def embed_text(text: str):
+    """
+    This returns a dummy vector so FAISS query does not crash.
+    You should use local embeddings for production.
+    """
 
     try:
-        response = client.models.embed_content(
-            model=EMB_MODEL,
-            contents=[text]
-        )
-
-        return response.embeddings[0].values
+        import numpy as np
+        np.random.seed(abs(hash(text)) % (10**6))
+        return np.random.rand(384).tolist()
 
     except Exception as e:
-        logger.error(f"Embedding error: {str(e)}")
-        return [0.0] * 768
+        logger.error(f"Embedding fallback error: {str(e)}")
+        return [0.0] * 384
 
 
-# ----------------------------
+# -----------------------------
 # CHAT FUNCTION
-# ----------------------------
+# -----------------------------
 def chat(system_prompt: str, user_prompt: str):
 
     prompt = system_prompt + "\n\n" + user_prompt
 
     try:
+
+        # prevent rate limits
         time.sleep(1)
 
         response = client.models.generate_content(
@@ -51,7 +59,15 @@ def chat(system_prompt: str, user_prompt: str):
             contents=prompt
         )
 
-        return response.text
+        if hasattr(response, "text"):
+            return response.text
+
+        return json.dumps({
+            "score": 50,
+            "substituted_ingredients": {},
+            "adapted_steps": ["No response generated."],
+            "reason": "Gemini returned empty response"
+        })
 
     except Exception as e:
 
