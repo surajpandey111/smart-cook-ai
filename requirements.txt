@@ -2,6 +2,6 @@ streamlit
 pandas
 numpy
 faiss-cpu
-google-generativeai
+google-genai
 python-dotenv
 pydantic
