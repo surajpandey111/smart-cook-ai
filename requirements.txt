@@ -5,3 +5,4 @@ faiss-cpu
 google-genai
 python-dotenv
 pydantic
+sentence-transformers
