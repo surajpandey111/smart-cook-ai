@@ -13,7 +13,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-CHAT_MODEL = "gemini-2.5-flash"
+CHAT_MODEL = "gemini-2.5-flash-lite"
 EMB_MODEL = "models/text-embedding-004"
 
 # Retry settings with increased timeout and exponential backoff
