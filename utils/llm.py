@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Fast and cheap model
-CHAT_MODEL = "gemini-1.5-flash"
+CHAT_MODEL = "gemini-3.1-pro-preview"
 
 
 # -----------------------------
