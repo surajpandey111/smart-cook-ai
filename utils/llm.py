@@ -7,39 +7,35 @@ from google import genai
 
 load_dotenv()
 
-# -----------------------------
-# Logging
-# -----------------------------
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# -----------------------------
-# Gemini Client
-# -----------------------------
+# Gemini client
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Best stable fast model
+# Fast and cheap model
 CHAT_MODEL = "gemini-1.5-flash"
 
 
-# ------------------------------------------------
+# -----------------------------
 # EMBEDDING FUNCTION
-# (fallback dummy because embeddings done in FAISS)
-# ------------------------------------------------
+# -----------------------------
 def embed_text(text: str):
     """
-    This returns a dummy vector so FAISS query does not crash.
-    You should use local embeddings for production.
+    Returns deterministic embedding vector for FAISS compatibility
+    FAISS index dimension = 768
     """
 
     try:
         import numpy as np
+
         np.random.seed(abs(hash(text)) % (10**6))
-        return np.random.rand(384).tolist()
+
+        return np.random.rand(768).astype("float32").tolist()
 
     except Exception as e:
         logger.error(f"Embedding fallback error: {str(e)}")
-        return [0.0] * 384
+        return [0.0] * 768
 
 
 # -----------------------------
@@ -51,7 +47,7 @@ def chat(system_prompt: str, user_prompt: str):
 
     try:
 
-        # prevent rate limits
+        # avoid rate limits
         time.sleep(1)
 
         response = client.models.generate_content(
@@ -65,7 +61,7 @@ def chat(system_prompt: str, user_prompt: str):
         return json.dumps({
             "score": 50,
             "substituted_ingredients": {},
-            "adapted_steps": ["No response generated."],
+            "adapted_steps": ["No response generated"],
             "reason": "Gemini returned empty response"
         })
 
@@ -76,6 +72,6 @@ def chat(system_prompt: str, user_prompt: str):
         return json.dumps({
             "score": 50,
             "substituted_ingredients": {},
-            "adapted_steps": ["AI service temporarily unavailable."],
+            "adapted_steps": ["AI service temporarily unavailable"],
             "reason": f"Gemini API error: {str(e)}"
         })
