@@ -11,23 +11,28 @@ logger = logging.getLogger(__name__)
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-CHAT_MODEL = "gemini-1.5-flash"
-EMB_MODEL = "text-embedding-004"
+# Use Flash-Lite model
+CHAT_MODEL = "gemini-2.0-flash-lite"
+
+# Safe embedding model for public Gemini API
+EMB_MODEL = "embedding-001"
 
 
 def embed_text(text: str):
-
     try:
         response = client.models.embed_content(
             model=EMB_MODEL,
             contents=text
         )
 
+        # return vector for FAISS
         return response.embeddings[0].values
 
     except Exception as e:
         logger.error(f"Embedding error: {str(e)}")
-        raise
+
+        # fallback vector to avoid Streamlit crash
+        return [0.0] * 768
 
 
 def chat(system_prompt: str, user_prompt: str):
@@ -35,7 +40,6 @@ def chat(system_prompt: str, user_prompt: str):
     prompt = system_prompt + "\n\n" + user_prompt
 
     try:
-
         response = client.models.generate_content(
             model=CHAT_MODEL,
             contents=prompt
