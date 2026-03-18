@@ -30,7 +30,7 @@ st.markdown("""
 
 st.markdown('<div class="title">Agentic AI System for Smart Personal Cooking Assistant</div>', unsafe_allow_html=True)
 
-st.markdown('<p style="text-align:center;">Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b>Dr. Ashok Kumar Yadav</b></p>', unsafe_allow_html=True)
+st.markdown('<p style="text-align:center;">Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b>Prof. B.K Tripathi</b></p>', unsafe_allow_html=True)
 
 
 # ---------- CACHE ----------
