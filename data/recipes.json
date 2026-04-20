@@ -7,11 +7,7 @@
     "tags": ["eggetarian", "quick", "indian"],
     "minutes": 10,
     "servings": 1,
-    "steps": [
-      "Beat eggs with salt.",
-      "Sauté chopped onion, tomato, chili, capsicum.",
-      "Add eggs, cook, fold, and serve."
-    ]
+    "steps": ["Beat eggs with salt in a small bowl.", "Sauté chopped onion, tomato, chili, and capsicum in a pan until softened.", "Pour in the beaten eggs, cook until set, fold, and serve hot."]
   },
   {
     "id": 2,
@@ -21,11 +17,7 @@
     "tags": ["vegetarian", "indian", "lunch"],
     "minutes": 20,
     "servings": 2,
-    "steps": [
-      "Marinate paneer in yogurt + spices.",
-      "Sauté with onion and capsicum.",
-      "Wrap in roti and serve."
-    ]
+    "steps": ["Marinate paneer cubes in a mixture of yogurt and spices for 15 minutes.", "Sauté the marinated paneer with sliced onion and capsicum until charred.", "Place the mixture inside a warm roti, wrap tightly, and serve."]
   },
   {
     "id": 3,
@@ -35,451 +27,528 @@
     "tags": ["vegan", "gluten-free", "quick"],
     "minutes": 8,
     "servings": 2,
-    "steps": [
-      "Chop veggies.",
-      "Mix with chickpeas, lemon, salt.",
-      "Toss and serve."
-    ]
+    "steps": ["Finely chop the cucumber, tomato, and onion.", "In a large bowl, mix the veggies with boiled chickpeas, lemon juice, and salt.", "Toss well to combine and serve chilled."]
   },
   {
     "id": 4,
-    "title": "Paneer Butter Masala Recipe",
-    "ingredients": [
-      "1 tablespoon oil",
-      "2 green cardamoms (or ¼ to ⅓ tsp ground cardamom, elaichi)",
-      "1 cup onions (sliced or diced from 1 medium yellow or 2 small red onions)",
-      "1 inch ginger (peeled & sliced or use 1½ to 2 teaspoon ginger garlic paste, read notes)",
-      "5 to 6 large garlic cloves (peeled, omit to use gg paste)",
-      "2 cups tomatoes (sliced, use up to 420 grams from 2 large or 4 medium)",
-      "15 whole cashew nuts (use up to 18 nuts/ 36 g if using more tomatoes or use almonds)",
-      "1 teaspoon sea salt (adjust to taste)",
-      "1 teaspoon jaggery/ sugar (optional)",
-      "¾ to 1 teaspoon Kashmiri red chilli powder (or paprika) (adjust to heat & color preference)",
-      "¾ to 1 teaspoon garam masala powder (adjust to taste)",
-      "1 teaspoon coriander powder (daniya powder) (optional)",
-      "1 cup cold water (to blend)",
-      "2 tablespoons unsalted butter",
-      "1 small bay leaf (tej patta, optional)",
-      "2 inch Ceylon cinnamon piece (or 1 inch dalchini, optional)",
-      "3 cloves (laung, optional)",
-      "250 to 300 grams paneer (I cut mine to ¾ inch)",
-      "½ tablespoon kasuri methi (dried fenugreek leaves, crushed)",
-      "3 to 4 tablespoons heavy cream (sub with fresh cream, cooking cream or thickened cream)",
-      "1 to 2 tablespoon coriander leaves (cilantro finely chopped, to garnish)"
-    ],
-    "tools": [
-      "pan",
-      "blender",
-      "strainer",
-      "spoon"
-    ],
-    "tags": [
-      "vegetarian",
-      "indian",
-      "north-indian"
-    ],
+    "title": "Paneer Butter Masala",
+    "ingredients": ["250g paneer", "2 tbsp butter", "1 tbsp oil", "1 cup onions sliced", "2 cups tomatoes sliced", "15 cashews", "1 tsp ginger garlic paste", "1 tsp kashmiri red chili powder", "1 tsp garam masala", "1/2 tbsp kasuri methi", "3 tbsp heavy cream", "salt to taste"],
+    "tools": ["pan", "blender", "strainer"],
+    "tags": ["vegetarian", "indian", "north-indian"],
     "minutes": 40,
     "servings": 4,
-    "steps": [
-      "Pour oil to a pan and add cardamoms, onions, ginger and garlic. Saute for 4 to 5 mins, until the onions turn transparent.",
-      "Add tomatoes, salt and cashews. Mix well and cook covered until the tomatoes turn mushy and break down. (Takes me about 7 mins on a medium heat. If your pan is dry, add a splash of water).",
-      "Stir in the red chili powder, coriander powder and garam masala. Saute on a medium heat for 3 to 4 mins, until aromatic. Turn off and cool down.",
-      "Pour 1 cup cold water to a blender jar & transfer the onion tomato masala. Blend to a silky smooth puree.",
-      "On a low heat, melt butter in the same pan and add the optional whole spices if using – bay leaf, cinnamon and cloves.",
-      "When they begin to sizzle, stir in the optional red chili powder. Hold a strainer over the pan and pour the onion tomato masala. Stir with a spoon to strain.",
-      "Pour ½ cup more water & mix well. Cook covered on a medium heat until slightly thick, yet flowy. It will thicken upon cooling. (Takes about 10 to 12 mins, keep stirring every 3 to 4 mins). You will see traces of fat on the butter masala when it is ready.",
-      "Remove the whole spices to discard and taste test to adjust salt and garam masala. Stir in the jaggery, kasuri methi & paneer. Cook covered for 2 to 3 mins on a low heat and turn off. Stir in the cream (reserve a tablespoon to garnish).",
-      "Garnish paneer butter masala with cream and chopped coriander leaves. Best served with Basmati Rice, Jeera Rice, Butter Naan, Tandoori Roti or plain parathas."
-    ]
+    "steps": ["Sauté onions, ginger, and garlic in oil until transparent.", "Add tomatoes, salt, and cashews; cook until tomatoes are mushy.", "Blend the mixture with water into a smooth puree and strain it.", "Melt butter in a pan, add the puree, spices, and simmer for 10 minutes.", "Stir in paneer, kasuri methi, and cream; cook for 2 minutes and serve."]
   },
   {
     "id": 5,
-    "title": "Aloo Paratha Recipe | Potato Stuffed Paratha",
-    "ingredients": [
-      "2 cups whole wheat flour (240 grams) (atta)",
-      "¼ teaspoon salt",
-      "1 tablespoon oil (optional, refer notes)",
-      "water as needed for kneading (I used ¾ cup + 2 tbsps)",
-      "350 grams potatoes (3 medium potatoes)",
-      "1 green chilli chopped (optional)",
-      "¾ teaspoon grated ginger (or ¼ tsp ginger powder)",
-      "2 tablespoons coriander leaves (very fine chopped)",
-      "½ teaspoon salt (adjust to taste)",
-      "½ to ¾ teaspoon garam masala (adjust to taste)",
-      "½ teaspoon kashmiri red chilli powder (adjust to taste)",
-      "¾ to 1 teaspoon coriander powder",
-      "½ teaspoon chaat masala (or 1 tbsp lemon juice or ½ tsp amchur)",
-      "1 teaspoon kasuri methi (dried fenugreek leaves)",
-      "¼ teaspoon ajwain (carom seeds) (optional)",
-      "½ teaspoon fennel seeds powder (saunf powder) (optional)",
-      "4 tablespoons ghee (use as per preference)"
-    ],
-    "tools": [
-      "mixing bowl",
-      "rolling pin",
-      "griddle",
-      "spatula",
-      "pressure cooker or instant pot (for boiling potatoes)"
-    ],
-    "tags": [
-      "vegetarian",
-      "indian",
-      "north-indian",
-      "breakfast"
-    ],
+    "title": "Aloo Paratha",
+    "ingredients": ["2 cups whole wheat flour", "3 medium potatoes boiled", "1 green chili", "1/2 tsp garam masala", "1/2 tsp amchur powder", "salt to taste", "ghee for frying"],
+    "tools": ["mixing bowl", "rolling pin", "griddle"],
+    "tags": ["vegetarian", "indian", "breakfast"],
     "minutes": 45,
-    "servings": 8,
-    "steps": [
-      "Boil potatoes just until fork tender without making them mushy. To pressure cook in traditional cooker, cook for 3 to 4 whistles depending on the size of potatoes. In instant pot pressure cook for 5 mins since using medium sized potatoes.",
-      "While the potatoes boil, make the dough. Add flour, oil and salt to a bowl. Pour half cup water and begin to mix to form a dough. Pour more water as needed and make a soft yet non-sticky dough.",
-      "Knead it well until soft & pliable. If you press down the dough with your finger, it should dent easily meaning it is soft enough. Cover and rest until the filling is ready.",
-      "When the potatoes are done, cool them slightly and peel while still warm. Ensure your boiled potatoes are not mushy or soggy.",
-      "Grate or mash them well until no bits of potatoes remain. Using your fingers break any chunks of potatoes left in the mash otherwise they will tear the parathas. Also do not over mash it as the potatoes will turn pasty and sticky.",
-      "Add ginger, green chilies, coriander leaves, salt, red chilli powder, garam masala, coriander powder, kasuri methi and chaat masala. Crush the kasuri methi before adding.",
-      "Optional: Also add the optional ingredients – ajwain and fennel powder.",
-      "Mix all of the ingredients gently and taste test it. Add more salt or spices as per your taste.",
-      "Divide the aloo stuffing to 8 parts. Also divide the dough to 8 parts. Keep the dough covered.",
-      "Roll a dough ball in your palms to smooth. Lightly sprinkle some flour on the rolling area. Flatten the dough ball and dip it in some flour.",
-      "Method 1 – Dust off the excess & roll it to a 4 inch disc or roti. Place a portion of aloo stuffing in the center. Gently bring the sides of the roti up shaping like a cup. Repeat the steps of pushing the stuffing inside with your finger and bringing the dough up until the edges come over the stuffing. (Refer video).",
-      "If the stuffing is sticky, dip your fingers in flour. Bring the edges together over the stuffing and join them to seal carefully. (Refer step-by-step photo or video).",
-      "Method 2 – Roll a 5 inch roti and place the stuffing in the center, hold the edges and make small pleats. Bring all of them on top and join them together to seal the stuffing. Remove the excess dough on top.",
-      "Dip the stuffed ball in flour and flatten it gently to spread the stuffing evenly. This ensures the stuffing does not come out at all. Dust off the excess.",
-      "Sprinkle some flour on the rolling area.",
-      "Place the paratha disc on the rolling area with the sealed side down. Begin to roll evenly all over without putting pressure.",
-      "Do not roll the aloo paratha continuously. Instead rotate in clock-wise direction a little after every 4 to 6 rolls to ensure it does not tear or get stuck. Sprinkle flour as needed and avoid using excess. If you see the stuffing coming out, gently apply some flour to seal."
-    ]
+    "servings": 4,
+    "steps": ["Knead a soft dough using flour, water, and a pinch of salt.", "Mash boiled potatoes and mix with spices, chilies, and salt to make the stuffing.", "Stuff a small ball of dough with the potato mixture and seal the edges.", "Roll into a flat disc and cook on a hot griddle with ghee until golden brown."]
   },
   {
     "id": 6,
     "title": "Spicy Vegan Potato Curry",
-    "ingredients": [
-      "4 potatoes, peeled and cubed",
-      "2 tablespoons vegetable oil",
-      "1 yellow onion, diced",
-      "3 cloves garlic, minced",
-      "4 teaspoons curry powder",
-      "4 teaspoons garam masala",
-      "2 teaspoons ground cumin",
-      "2 teaspoons salt",
-      "1 (1 inch) piece fresh ginger root, peeled and minced",
-      "1 ½ teaspoons cayenne pepper",
-      "1 (15 ounce) can garbanzo beans (chickpeas), rinsed and drained",
-      "1 (15 ounce) can peas, drained",
-      "1 (14.5 ounce) can diced tomatoes",
-      "1 (14 ounce) can coconut milk"
-    ],
-    "tools": [
-      "large pot",
-      "large skillet"
-    ],
-    "tags": [
-      "vegan",
-      "indian",
-      "east-indian"
-    ],
+    "ingredients": ["4 potatoes cubed", "1 onion diced", "1 can chickpeas", "1 can coconut milk", "4 tsp curry powder", "2 tsp cumin", "1 tsp ginger minced", "oil"],
+    "tools": ["large pot", "skillet"],
+    "tags": ["vegan", "indian", "main-course"],
     "minutes": 50,
     "servings": 6,
-    "steps": [
-      "Place potatoes into a large pot and cover with salted water. Bring to a boil, then reduce the heat to medium-low, cover, and simmer until just tender, about 15 minutes. Drain and allow to steam dry for 1 to 2 minutes.",
-      "Meanwhile, heat oil in a large skillet over medium heat. Cook and stir onion and garlic in hot oil until onion has softened and turned translucent, about 5 minutes. Season with curry powder, garam masala, cumin, salt, ginger, and cayenne pepper; cook and stir for 2 minutes more.",
-      "Add cooked potatoes, garbanzo beans, peas, and tomatoes, then pour in coconut milk. Bring to a simmer and continue cooking for 5 to 10 minutes."
-    ]
+    "steps": ["Boil potato cubes in salted water until tender, then drain.", "Sauté onion and garlic in oil; add curry powder, cumin, and ginger.", "Stir in potatoes, chickpeas, and coconut milk; simmer for 10 minutes."]
   },
   {
     "id": 7,
-    "title": "Vada Pav Recipe (Mumbai Street Style)",
-    "ingredients": [
-      "1 to 1½ cups coriander leaves",
-      "½ teaspoon cumin seeds (jeera)",
-      "2 hot green chilies (adjust to taste)",
-      "2 small garlic cloves (peeled)",
-      "1 to 2 teaspoons Lemon juice (adjust to taste)",
-      "1 to 2 tablespoons water (use only as required)",
-      "¼ teaspoon Salt (adjust to taste)",
-      "1 to 2 tablespoons dried coconut or roasted peanuts or fried gram or a slice of white bread (optional)",
-      "6 to 8 garlic cloves",
-      "6 to 10 dried red chilies (Byadgi or Kashmiri or any less spicy kind)",
-      "½ to 1 cup dried coconut (copra) (for more garlic flavor use ½ cup)",
-      "1 tablespoon peanuts (optional)",
-      "¼ to ½ teaspoon salt",
-      "½ teaspoon Kashmiri red chili powder (optional, for color)",
-      "3 medium potatoes (aloo – 2 ¼ cups crumbled)",
-      "2 to 3 green chilies (adjust to taste)",
-      "¾ inch ginger (Peeled)",
-      "2 to 3 cloves garlic (Peeled)",
-      "1 tablespoon oil",
-      "¼ to ½ teaspoon mustard seeds",
-      "2 pinches hing (asafoetida)",
-      "1 sprig curry leaves",
-      "¼ teaspoon turmeric",
-      "⅛ teaspoon red chilli powder (optional)",
-      "½ to ¾ teaspoon Salt (adjust to taste)",
-      "3 tablespoons coriander leaves (fine chopped)",
-      "¾ cup gram flour (besan)",
-      "2 to 3 tablespoons rice flour (or Corn Starch)",
-      "¼ teaspoon Salt (adjust to taste)",
-      "1 Pinch asafoetida (hing)",
-      "Tiny pinch soda-bi-carbonate (optional)",
-      "1 pinch Turmeric",
-      "⅛ teaspoon red chilli powder (optional)",
-      "oil for deep frying"
-    ],
-    "tools": [
-      "chutney grinder",
-      "blender",
-      "pan",
-      "mixing bowl",
-      "deep pan/kadai",
-      "cooling rack or colander",
-      "mess strainer or colander"
-    ],
-    "tags": [
-      "vegan",
-      "indian",
-      "west-indian"
-    ],
+    "title": "Vada Pav (Mumbai Style)",
+    "ingredients": ["3 potatoes boiled", "1 cup besan", "2 tbsp rice flour", "mustard seeds", "curry leaves", "green chili paste", "turmeric", "pav buns", "oil"],
+    "tools": ["pan", "mixing bowl", "deep fryer"],
+    "tags": ["vegan", "indian", "street-food"],
     "minutes": 55,
-    "servings": 8,
-    "steps": [
-      "Pluck coriander leaves, keep tender stalks, rinse well, and drain in a colander.",
-      "Add all green chutney ingredients to a blender jar, make a thick paste by adding 1 tbsp water at a time, and blend until smooth.",
-      "Adjust salt, lemon juice, and green chili to taste, ensuring chutney is not too runny.",
-      "Store green chutney in a clean dry airtight glass jar and refrigerate until used.",
-      "Skin garlic cloves and dry roast for 2 to 3 mins.",
-      "Add red chilies and roast until crisp, transfer to a plate, and cool.",
-      "Add coconut to the same pan, heat until hot, transfer to a plate, and cool.",
-      "If using peanuts, dry roast on medium heat until golden and aromatic.",
-      "First powder red chilies with red chili powder and salt, then add garlic and blend once, then add coconut and peanuts, and powder coarsely.",
-      "Boil potatoes until just done, firm, fork tender, and not mushy, either in a pressure cooker, steamer, or pot, cool, and crumble lightly.",
-      "Make a coarse paste of green chili, garlic, and ginger.",
-      "Heat 1 tbsp oil in a pan on low heat, add mustard, when they begin to crackle, add curry leaves, and fry until crisp.",
-      "Add ginger garlic and green chili paste, fry on low heat until fragrant.",
-      "Add hing, salt, turmeric, and red chili powder, mix well, and add potatoes and coriander leaves.",
-      "Turn off the stove, mix everything well, cool, divide into 7 to 8 portions, and shape into balls.",
-      "Heat oil for deep frying in a kadai.",
-      "Add besan and rice flour or corn flour to a mixing bowl, add salt, hing, turmeric, and red chili powder (optional), mix well.",
-      "Pour 4 tablespoons water and begin to mix to make a thick lump-free batter, adding more water as required, adjust salt and spice.",
-      "When oil is hot enough, add a tiny pinch of soda to the batter, mix well (optional).",
-      "Check oil heat by dropping a small amount of batter, it should sizzle and rise without turning brown."
-    ]
+    "servings": 4,
+    "steps": ["Temper mustard seeds and curry leaves; add potato mash, turmeric, and chili paste.", "Shape the potato mixture into balls.", "Make a thick batter of besan and rice flour; dip the balls and deep fry until golden.", "Serve inside a pav with garlic chutney and green chutney."]
   },
   {
     "id": 8,
     "title": "World's Best Lasagna",
-    "ingredients": [
-      "1 pound sweet Italian sausage",
-      "¾ pound lean ground beef",
-      "½ cup minced onion",
-      "2 cloves garlic, crushed",
-      "1 (28 ounce) can crushed tomatoes",
-      "2 (6.5 ounce) cans canned tomato sauce",
-      "2 (6 ounce) cans tomato paste",
-      "½ cup water",
-      "2 tablespoons white sugar",
-      "4 tablespoons chopped fresh parsley, divided",
-      "1 ½ teaspoons dried basil leaves",
-      "1 ½ teaspoons salt, divided, or to taste",
-      "1 teaspoon Italian seasoning",
-      "½ teaspoon fennel seeds",
-      "¼ teaspoon ground black pepper",
-      "12 lasagna noodles",
-      "16 ounces ricotta cheese",
-      "1 egg",
-      "¾ pound mozzarella cheese, sliced",
-      "¾ cup grated Parmesan cheese"
-    ],
-    "tools": [
-      "Dutch oven",
-      "large pot",
-      "mixing bowl",
-      "9x13-inch baking dish",
-      "foil",
-      "oven"
-    ],
-    "tags": [
-      "non-veg",
-      "global",
-      "italian"
-    ],
+    "ingredients": ["1 lb sweet Italian sausage", "12 lasagna noodles", "16 oz ricotta cheese", "1 egg", "3/4 lb mozzarella cheese", "3/4 cup parmesan", "28 oz crushed tomatoes"],
+    "tools": ["oven", "9x13 baking dish", "pot"],
+    "tags": ["non-veg", "global", "italian"],
     "minutes": 195,
     "servings": 12,
-    "steps": [
-      "Gather all your ingredients.",
-      "Cook sausage, ground beef, onion, and garlic in a Dutch oven over medium heat until well browned.",
-      "Stir in crushed tomatoes, tomato sauce, tomato paste, and water. Season with sugar, 2 tablespoons parsley, basil, 1 teaspoon salt, Italian seasoning, fennel seeds, and pepper. Simmer, covered, for about 1 ½ hours, stirring occasionally.",
-      "Bring a large pot of lightly salted water to a boil. Cook lasagna noodles in boiling water for 8 to 10 minutes. Drain noodles, and rinse with cold water.",
-      "In a mixing bowl, combine ricotta cheese with egg, remaining 2 tablespoons parsley, and 1/2 teaspoon salt.",
-      "Preheat the oven to 375 degrees F (190 degrees C).",
-      "To assemble, spread 1 ½ cups of meat sauce in the bottom of a 9x13-inch baking dish. Arrange 6 noodles lengthwise over meat sauce, overlapping slightly. Spread with 1/2 of the ricotta cheese mixture. Top with 1/3 of the mozzarella cheese slices. Spoon 1 ½ cups meat sauce over mozzarella, and sprinkle with 1/4 cup Parmesan cheese.",
-      "Repeat layers, and top with remaining mozzarella and Parmesan cheese. Cover with foil: to prevent sticking, either spray foil with cooking spray or make sure the foil does not touch the cheese.",
-      "Bake in the preheated oven for 25 minutes. Remove the foil and bake for an additional 25 minutes.",
-      "Rest lasagna for 15 minutes before serving."
-    ]
+    "steps": ["Cook meat with onions and garlic; add tomatoes and simmer for 1.5 hours.", "Boil lasagna noodles and mix ricotta with egg and parsley.", "Layer meat sauce, noodles, ricotta mixture, and mozzarella in a baking dish.", "Bake at 375°F (190°C) for 50 minutes until bubbly and browned."]
   },
   {
     "id": 9,
     "title": "Creamy au Gratin Potatoes",
-    "ingredients": [
-      "4 medium russet potatoes, thinly sliced",
-      "1 medium onion, sliced into rings",
-      "salt and ground black pepper to taste",
-      "3 tablespoons butter",
-      "3 tablespoons all-purpose flour",
-      "½ teaspoon salt",
-      "2 cups milk",
-      "1 ½ cups shredded Cheddar cheese"
-    ],
-    "tools": [
-      "oven",
-      "casserole dish",
-      "saucepan",
-      "whisk",
-      "aluminum foil"
-    ],
-    "tags": [
-      "vegetarian",
-      "global",
-      "mediterranean"
-    ],
+    "ingredients": ["4 russet potatoes sliced", "1 onion sliced", "3 tbsp butter", "3 tbsp flour", "2 cups milk", "1.5 cups cheddar cheese"],
+    "tools": ["oven", "casserole dish", "saucepan"],
+    "tags": ["vegetarian", "global", "side-dish"],
     "minutes": 120,
     "servings": 4,
-    "steps": [
-      "Gather all ingredients. Preheat the oven to 400 degrees F (200 degrees C). Grease a 2-quart casserole dish with butter.",
-      "Layer 1/2 of the potatoes in the bottom of the prepared casserole dish; season with salt and pepper.",
-      "Layer onion slices over top, then top with remaining potatoes. Season again with salt and pepper.",
-      "Melt butter in a medium saucepan over medium heat. Whisk in flour and salt; cook, whisking constantly, until raw flour flavor has cooked off, about 1 minute.",
-      "Gradually add milk, about 1/4 cup at a time, whisking well after each addition to incorporate; the gradual addition and whisking of milk will help avoid lumps in your sauce.",
-      "Cook, whisking constantly, until the mixture has thickened, 3 to 5 minutes.",
-      "Stir in cheese all at once; cook, stirring constantly, until melted, 30 to 60 seconds.",
-      "Pour cheese sauce over the potatoes, and cover the dish with aluminum foil.",
-      "Bake in the preheated oven until potatoes are tender and sauce is bubbly, about 1 ½ hours."
-    ]
+    "steps": ["Layer potatoes and onions in a greased casserole dish.", "Make a roux with butter and flour; whisk in milk until thickened.", "Stir in cheese until melted and pour the sauce over the potatoes.", "Cover with foil and bake at 400°F (200°C) for 1.5 hours."]
   },
   {
     "id": 10,
     "title": "Spinach and Feta Turkey Burgers",
-    "ingredients": [
-      "cooking spray",
-      "2 pounds ground turkey",
-      "1 (10 ounce) box frozen chopped spinach, thawed and squeezed dry",
-      "4 ounces feta cheese",
-      "2 large eggs, beaten",
-      "2 cloves garlic, minced"
-    ],
-    "tools": [
-      "outdoor grill",
-      "bowl",
-      "instant-read thermometer"
-    ],
-    "tags": [
-      "non-veg",
-      "global",
-      "american"
-    ],
+    "ingredients": ["2 lbs ground turkey", "10 oz frozen spinach thawed", "4 oz feta cheese", "2 eggs beaten", "2 cloves garlic minced", "cooking spray"],
+    "tools": ["outdoor grill", "bowl", "thermometer"],
+    "tags": ["non-veg", "global", "american"],
     "minutes": 35,
     "servings": 8,
-    "steps": [
-      "Preheat an outdoor grill for medium-high heat and lightly oil the grate.",
-      "Mix together turkey, spinach, feta, eggs, and garlic in a large bowl until well combined; form into 8 patties.",
-      "Cook patties on the preheated grill on both sides until no longer pink in the center, 15 to 20 minutes. An instant-read thermometer inserted into the center of patties should read at least 165 degrees F (74 degrees C)."
-    ]
+    "steps": ["Squeeze all excess moisture from the thawed spinach.", "Mix turkey, spinach, feta, eggs, and garlic in a bowl; form into 8 patties.", "Grill over medium-high heat for 15-20 minutes until the internal temperature reaches 165°F (74°C)."]
   },
   {
     "id": 11,
     "title": "Bengali Fish Curry",
-    "ingredients": ["fish", "mustard oil", "mustard paste", "turmeric", "green chili", "salt"],
+    "ingredients": ["fish steaks", "mustard oil", "mustard paste", "turmeric", "green chili", "salt"],
     "tools": ["stovetop", "pan"],
     "tags": ["non-veg", "indian", "east-indian"],
     "minutes": 25,
     "servings": 2,
-    "steps": [
-      "Marinate fish with turmeric and salt.",
-      "Heat mustard oil, fry fish lightly.",
-      "Add mustard paste and green chilies, cook with water, serve."
-    ]
+    "steps": ["Marinate fish with turmeric and salt for 10 minutes.", "Fry the fish in hot mustard oil until lightly golden and set aside.", "In the same oil, sauté mustard paste and chilies, add water, return the fish to the pan, and simmer until cooked."]
   },
   {
     "id": 12,
     "title": "Gujarati Dhokla",
-    "ingredients": ["besan", "yogurt", "turmeric", "ginger", "baking soda", "oil"],
+    "ingredients": ["besan", "yogurt", "turmeric", "ginger paste", "baking soda", "oil", "mustard seeds"],
     "tools": ["steamer", "pan"],
     "tags": ["vegan", "indian", "west-indian"],
     "minutes": 40,
     "servings": 4,
-    "steps": [
-      "Mix besan with yogurt and spices.",
-      "Add baking soda, steam for 15 minutes.",
-      "Temper with oil, serve with chutney."
-    ]
+    "steps": ["Create a smooth batter with besan, yogurt, turmeric, and ginger; let it rest.", "Stir in baking soda and immediately steam the batter for 15 minutes.", "Temper mustard seeds in oil and pour over the steamed dhokla; slice and serve."]
   },
   {
     "id": 13,
     "title": "Thai Green Curry",
-    "ingredients": ["coconut milk", "green curry paste", "chicken", "bell pepper", "basil"],
+    "ingredients": ["400ml coconut milk", "2 tbsp green curry paste", "300g chicken strips", "bell pepper", "thai basil"],
     "tools": ["stovetop", "pan"],
     "tags": ["non-veg", "global", "thai"],
     "minutes": 25,
     "servings": 2,
-    "steps": [
-      "Heat curry paste in coconut milk.",
-      "Add chicken and bell pepper, simmer.",
-      "Garnish with basil, serve with rice."
-    ]
+    "steps": ["Fry the curry paste in a little coconut milk until aromatic.", "Add chicken and peppers, followed by the remaining coconut milk.", "Simmer until chicken is tender; garnish with basil and serve with jasmine rice."]
   },
   {
     "id": 14,
     "title": "Mexican Enchiladas",
-    "ingredients": ["tortillas", "chicken", "cheese", "salsa", "onion"],
+    "ingredients": ["corn tortillas", "shredded chicken", "mexican cheese blend", "enchilada salsa", "onion"],
     "tools": ["oven", "pan"],
     "tags": ["non-veg", "global", "mexican"],
     "minutes": 35,
     "servings": 2,
-    "steps": [
-      "Cook chicken with salsa.",
-      "Roll in tortillas with cheese.",
-      "Bake until cheese melts, serve."
-    ]
+    "steps": ["Mix shredded chicken with a splash of salsa and chopped onions.", "Dip tortillas in salsa, fill with chicken mixture, and roll tightly.", "Place in a baking dish, top with remaining salsa and cheese, and bake at 180°C until melted."]
   },
   {
     "id": 15,
     "title": "Dosa",
-    "ingredients": ["rice", "urad dal", "salt", "oil"],
-    "tools": ["stovetop", "pan"],
+    "ingredients": ["3 cups rice", "1 cup urad dal", "salt", "oil"],
+    "tools": ["stovetop", "tava", "blender"],
     "tags": ["vegan", "indian", "south-indian"],
     "minutes": 40,
     "servings": 2,
-    "steps": [
-      "Soak rice and dal, grind into batter.",
-      "Ferment overnight.",
-      "Spread on pan, cook until crisp, serve with chutney."
-    ]
+    "steps": ["Soak rice and dal for 6 hours, then grind into a fine, smooth batter.", "Allow the batter to ferment in a warm place for 8-12 hours.", "Spread a ladle of batter onto a hot tava in a circular motion, drizzle oil, and cook until crisp."]
   },
   {
     "id": 16,
     "title": "Italian Pizza",
-    "ingredients": ["flour", "yeast", "tomato sauce", "mozzarella", "basil"],
-    "tools": ["oven", "bowl"],
+    "ingredients": ["pizza flour", "dry yeast", "tomato puree", "fresh mozzarella", "basil leaves"],
+    "tools": ["oven", "mixing bowl"],
     "tags": ["vegetarian", "global", "italian"],
     "minutes": 60,
     "servings": 2,
-    "steps": [
-      "Prepare dough with flour and yeast, let rise.",
-      "Add sauce and cheese, bake at 200°C for 15 minutes.",
-      "Garnish with basil, serve."
-    ]
+    "steps": ["Prepare a yeast-leavened dough and let it double in size.", "Stretch the dough, spread a thin layer of tomato sauce, and add mozzarella chunks.", "Bake at the highest oven temperature (220°C+) for 10-15 minutes; top with fresh basil."]
   },
   {
     "id": 17,
     "title": "Chettinad Chicken",
-    "ingredients": ["chicken", "coconut", "spices", "curry leaves", "onion"],
+    "ingredients": ["chicken pieces", "grated coconut", "chettinad spice mix", "curry leaves", "shallots"],
     "tools": ["stovetop", "pan"],
     "tags": ["non-veg", "indian", "south-indian"],
     "minutes": 45,
     "servings": 2,
+    "steps": ["Dry roast coconut and spices, then grind into a thick masala paste.", "Sauté shallots and curry leaves, add chicken and the ground paste.", "Add a little water and simmer until the chicken is tender and the gravy thickens."]
+  },
+  {
+    "id": 18,
+    "title": "Litti Chokha (Bihari Special)",
+    "ingredients": ["2 cups whole wheat flour", "1 cup sattu (roasted gram flour)", "2 tbsp mustard oil", "1 large eggplant (baingan)", "2 tomatoes", "2 boiled potatoes", "kalonji", "ajwain", "lemon juice"],
+    "tools": ["stovetop", "open flame/grill", "mixing bowl"],
+    "tags": ["vegetarian", "indian", "bihari", "traditional"],
+    "minutes": 60,
+    "servings": 4,
+    "steps": ["Prepare a stiff dough with flour, water, and salt.", "Mix sattu with mustard oil, lemon juice, ajwain, kalonji, and chopped chilies for the filling.", "Stuff dough balls with sattu and roast over a slow flame until browned.", "Roast eggplant and tomatoes; mash them with potatoes, mustard oil, and salt to make chokha."]
+  },
+  {
+    "id": 19,
+    "title": "Tehri (UP Style Veg Pulao)",
+    "ingredients": ["1.5 cups basmati rice", "2 potatoes cubed", "1 cup cauliflower florets", "1/2 cup green peas", "1 tsp turmeric", "2 bay leaves", "4 cloves", "2 tbsp ghee"],
+    "tools": ["pressure cooker", "knife"],
+    "tags": ["vegetarian", "indian", "uttar-pradesh", "one-pot"],
+    "minutes": 30,
+    "servings": 3,
+    "steps": ["Sauté whole spices (cloves, bay leaves) in ghee inside the pressure cooker.", "Add potatoes, cauliflower, and peas; sauté with turmeric and salt for 2 minutes.", "Add soaked rice and 3 cups of water.", "Pressure cook for 2 whistles and serve hot with curd or pickle."]
+  },
+  {
+    "id": 20,
+    "title": "Sattu Paratha",
+    "ingredients": ["2 cups wheat flour", "1 cup sattu", "1 chopped onion", "1 tsp pickle masala", "fresh coriander", "mustard oil", "green chilies"],
+    "tools": ["rolling pin", "tava", "mixing bowl"],
+    "tags": ["vegetarian", "indian", "bihari", "breakfast"],
+    "minutes": 25,
+    "servings": 4,
+    "steps": ["Mix sattu with onion, chilies, coriander, mustard oil, and a spoonful of mango pickle masala.", "Roll a dough ball, stuff it with the sattu mixture, and flatten it.", "Cook on a hot tava with ghee until both sides are crisp and golden."]
+  },
+  {
+    "id": 21,
+    "title": "Banarasi Dum Aloo",
+    "ingredients": ["500g baby potatoes", "1/2 cup curd", "2 tbsp tomato puree", "cashew paste", "fennel powder", "ginger powder", "oil for frying"],
+    "tools": ["pan", "deep fryer"],
+    "tags": ["vegetarian", "indian", "uttar-pradesh", "main-course"],
+    "minutes": 45,
+    "servings": 4,
+    "steps": ["Prick baby potatoes and deep fry until golden brown.", "Prepare a gravy with tomato puree, curd, cashew paste, and dry spices.", "Add the potatoes to the gravy and simmer on low heat (Dum) for 15 minutes."]
+  },
+  {
+    "id": 22,
+    "title": "Dal Pitha (Bihari Dumplings)",
+    "ingredients": ["2 cups rice flour", "1 cup chana dal (soaked)", "garlic", "green chilies", "turmeric", "salt"],
+    "tools": ["steamer", "blender", "pot"],
+    "tags": ["vegan", "indian", "bihari", "healthy"],
+    "minutes": 50,
+    "servings": 4,
+    "steps": ["Grind soaked chana dal with garlic and chilies into a coarse paste.", "Make a soft dough using rice flour and hot water.", "Stuff small dough pockets with the dal paste and seal.", "Steam the dumplings for 15-20 minutes until the rice flour casing is firm."]
+  },
+  {
+    "id": 23,
+    "title": "Chicken Galouti Kebab (Lucknowi Style)",
+    "ingredients": ["500g fine minced mutton/chicken", "1/2 cup raw papaya paste", "1 tbsp ginger-garlic paste", "kebab chini powder", "ghee", "saffron"],
+    "tools": ["skillet", "mixing bowl"],
+    "tags": ["non-veg", "indian", "uttar-pradesh", "awadhi"],
+    "minutes": 120,
+    "servings": 4,
+    "steps": ["Marinate meat with raw papaya paste for 1 hour to tenderize.", "Mix in ginger-garlic paste and the special spice blend (Galouti masala).", "Shape into delicate patties and shallow fry in ghee until they are 'melt-in-mouth' soft."]
+  },
+  {
+    "id": 24,
+    "title": "Japanese Ramen",
+    "ingredients": ["Ramen noodles", "2 cups chicken broth", "1 boiled egg", "soy sauce", "miso paste", "green onions", "nori sheet"],
+    "tools": ["pot", "bowl"],
+    "tags": ["non-veg", "global", "japanese"],
+    "minutes": 30,
+    "servings": 1,
+    "steps": ["Simmer broth with miso and soy sauce for 10 minutes.", "Boil noodles separately and place them in a deep serving bowl.", "Pour hot broth over noodles and top with halved egg, sliced onions, and nori."]
+  },
+  {
+    "id": 25,
+    "title": "Greek Salad (Horiatiki)",
+    "ingredients": ["2 tomatoes", "1 cucumber", "1 red onion", "kalamata olives", "200g feta cheese", "dried oregano", "olive oil"],
+    "tools": ["bowl", "knife"],
+    "tags": ["vegetarian", "global", "greek", "healthy"],
+    "minutes": 15,
+    "servings": 2,
+    "steps": ["Roughly chop tomatoes, cucumber, and onion into large chunks.", "Place in a bowl with olives and top with a large block of feta cheese.", "Drizzle generously with olive oil and sprinkle with dried oregano."]
+  },
+  {
+    "id": 26,
+    "title": "Malpua (UP/Bihar Dessert)",
+    "ingredients": ["1 cup all-purpose flour", "1/2 cup khoya/mawa", "1/2 cup fennel seeds", "milk", "sugar syrup", "ghee"],
+    "tools": ["frying pan", "saucepan"],
+    "tags": ["vegetarian", "indian", "dessert", "festive"],
+    "minutes": 40,
+    "servings": 5,
+    "steps": ["Make a batter using flour, khoya, and milk; let it sit for 2 hours.", "Deep fry small pancakes of the batter in ghee until the edges are crisp.", "Soak the fried malpuas in warm cardamom-flavored sugar syrup for 5 minutes."]
+  },
+  {
+    "id": 27,
+    "title": "Classic Beef Steak",
+    "ingredients": ["1 thick ribeye or sirloin steak", "2 tbsp butter", "2 cloves garlic", "fresh rosemary", "black pepper", "salt"],
+    "tools": ["cast iron skillet", "tongs"],
+    "tags": ["non-veg", "global", "western"],
+    "minutes": 20,
+    "servings": 1,
+    "steps": ["Season the steak heavily with salt and pepper on both sides.", "Sear in a smoking hot skillet for 3 minutes per side.", "Add butter, garlic, and rosemary; baste the steak with the melted butter for 2 more minutes."]
+  },
+  {
+    "id": 28,
+    "title": "Bihari Fish Curry (Sarson Masala)",
+    "ingredients": ["500g Rohu or Katla fish", "3 tbsp yellow mustard seeds", "2 tbsp garlic paste", "1 tsp turmeric", "1 tsp panch phoron", "2 tomatoes", "mustard oil"],
+    "tools": ["stovetop", "kadai", "grinder"],
+    "tags": ["non-veg", "indian", "bihari", "regional"],
+    "minutes": 40,
+    "servings": 3,
+    "steps": ["Grind mustard seeds and garlic into a very fine, smooth paste.", "Marinate fish with salt and turmeric; fry in mustard oil until crisp.", "Temper oil with panch phoron, sauté the mustard paste and tomatoes until oil separates.", "Add water to create a thin gravy, bring to boil, add fish, and simmer for 5 minutes."]
+  },
+  {
+    "id": 29,
+    "title": "Baingan ka Bharta (UP Style)",
+    "ingredients": ["1 large bharta eggplant", "2 onions finely chopped", "3 tomatoes", "1 inch ginger", "2 green chilies", "1 tsp garam masala", "mustard oil"],
+    "tools": ["open flame", "pan", "masher"],
+    "tags": ["vegetarian", "indian", "uttar-pradesh", "smoky"],
+    "minutes": 35,
+    "servings": 4,
+    "steps": ["Roast the eggplant over an open flame until the skin is charred and the inside is soft.", "Peel the charred skin, mash the pulp, and ensure there are no lumps.", "Sauté onions, ginger, and garlic in mustard oil; add tomatoes and spices.", "Mix in the mashed eggplant and cook for 10 minutes on low heat for a smoky flavor."]
+  },
+  {
+    "id": 30,
+    "title": "Thekua (Bihari Traditional Cookie)",
+    "ingredients": ["2 cups whole wheat flour", "1 cup jaggery (gud)", "1/2 cup grated coconut", "1 tsp fennel seeds", "2 tbsp ghee", "oil for deep frying"],
+    "tools": ["kadai", "mixing bowl", "wooden mold (optional)"],
+    "tags": ["vegetarian", "indian", "bihari", "snack"],
+    "minutes": 50,
+    "servings": 10,
+    "steps": ["Dissolve jaggery in a small amount of warm water to make a thick syrup.", "Mix flour, ghee, fennel, and coconut; add jaggery syrup to form a tight, stiff dough.", "Take small portions, press them onto a mold or flatten with palms to form patterns.", "Deep fry on low heat until dark golden brown and crunchy."]
+  },
+  {
+    "id": 31,
+    "title": "Matar Paneer (Dhaba Style)",
+    "ingredients": ["200g paneer cubes", "1 cup green peas", "2 onions", "3 tomatoes", "1/2 cup fresh cream", "1 tsp kitchen king masala", "ghee"],
+    "tools": ["kadai", "blender"],
+    "tags": ["vegetarian", "indian", "north-indian", "classic"],
+    "minutes": 30,
+    "servings": 3,
+    "steps": ["Fry paneer cubes until golden and soak in warm water to keep them soft.", "Make a paste of sautéed onions and tomatoes; cook in ghee with spices.", "Add peas and water; simmer until the peas are tender.", "Add paneer and cream, simmer for 2 minutes, and garnish with coriander."]
+  },
+  {
+    "id": 32,
+    "title": "Chana Dal with Lauki (UP Style)",
+    "ingredients": ["1 cup chana dal (soaked)", "2 cups bottle gourd (lauki) cubed", "1 onion", "1 tsp cumin seeds", "1/2 tsp hing", "1 tsp turmeric"],
+    "tools": ["pressure cooker"],
+    "tags": ["vegan", "indian", "uttar-pradesh", "healthy"],
+    "minutes": 25,
+    "servings": 4,
+    "steps": ["Pressure cook soaked dal and lauki with turmeric, salt, and water for 4-5 whistles.", "Prepare a tadka (tempering) by heating ghee/oil with cumin and hing.", "Add chopped onions and red chilies to the tadka; fry until brown.", "Pour the tadka over the cooked dal and mix well."]
+  },
+  {
+    "id": 33,
+    "title": "Chicken Biryani (Hyderabadi)",
+    "ingredients": ["500g basmati rice", "500g chicken", "1 cup fried onions (birista)", "1 cup yogurt", "mint leaves", "saffron milk", "whole biryani spices"],
+    "tools": ["heavy bottom pot", "mixing bowl"],
+    "tags": ["non-veg", "indian", "south-indian", "celebration"],
+    "minutes": 90,
+    "servings": 4,
+    "steps": ["Marinate chicken in yogurt, ginger-garlic paste, and spices for 2 hours.", "Parboil rice with whole spices until 70% cooked.", "Layer marinated chicken and parboiled rice in a pot; add fried onions, mint, and saffron.", "Seal the pot with dough (Dum) and cook on very low heat for 45 minutes."]
+  },
+  {
+    "id": 34,
+    "title": "Spaghetti Carbonara",
+    "ingredients": ["200g spaghetti", "100g guanciale or pancetta", "2 large eggs", "50g pecorino romano cheese", "black pepper"],
+    "tools": ["pot", "frying pan", "bowl"],
+    "tags": ["non-veg", "global", "italian"],
+    "minutes": 20,
+    "servings": 2,
+    "steps": ["Boil spaghetti in salted water until al dente.", "Fry pancetta in a pan until crisp; whisk eggs and cheese in a separate bowl.", "Toss pasta in the pan with pancetta (off the heat).", "Quickly stir in the egg mixture, adding a splash of pasta water to create a creamy sauce."]
+  },
+  {
+    "id": 35,
+    "title": "Korean Bibimbap",
+    "ingredients": ["1 cup cooked rice", "100g beef or tofu", "1 carrot", "1 cup spinach", "bean sprouts", "1 egg", "gochujang (korean chili paste)"],
+    "tools": ["pan", "bowl"],
+    "tags": ["non-veg", "global", "korean", "healthy"],
+    "minutes": 30,
+    "servings": 1,
+    "steps": ["Sauté vegetables individually with a touch of sesame oil and salt.", "Cook the meat/tofu with soy sauce and garlic; fry one egg sunny-side up.", "Place rice in a bowl, arrange veggies and meat in sections on top.", "Add a dollop of gochujang and the egg; mix everything thoroughly before eating."]
+  },
+  {
+    "id": 36,
+    "title": "Hummus (Middle Eastern)",
+    "ingredients": ["1 can chickpeas", "1/4 cup tahini", "2 tbsp lemon juice", "1 clove garlic", "olive oil", "paprika"],
+    "tools": ["food processor"],
+    "tags": ["vegan", "global", "middle-eastern", "dip"],
+    "minutes": 10,
+    "servings": 4,
+    "steps": ["Combine chickpeas, tahini, lemon juice, and garlic in a food processor.", "Blend until smooth, adding a little water or olive oil to reach desired consistency.", "Transfer to a bowl, create a well in the center, fill with olive oil, and sprinkle with paprika."]
+  },
+  {
+    "id": 37,
+    "title": "Nimona (UP Winter Special)",
+    "ingredients": ["2 cups fresh green peas", "2 potatoes cubed", "1 onion", "1 tsp mangodi (optional)", "green chili paste", "mustard oil"],
+    "tools": ["grinder", "kadai"],
+    "tags": ["vegetarian", "indian", "uttar-pradesh", "seasonal"],
+    "minutes": 35,
+    "servings": 4,
+    "steps": ["Coarsely grind the green peas into a paste.", "Sauté potatoes and mangodi in mustard oil until brown; set aside.", "Fry the pea paste in the same oil until the raw smell disappears.", "Add water, spices, and fried potatoes; simmer until the gravy is thick and flavorful."]
+  },
+  {
+    "id": 38,
+    "title": "Original Indian Street Omelette",
+    "ingredients": ["3 eggs", "1 onion finely chopped", "2 green chilies", "fresh coriander", "1/2 tsp turmeric", "butter", "2 bread slices"],
+    "tools": ["flat tawa", "spatula"],
+    "tags": ["eggetarian", "indian", "street-food", "breakfast"],
+    "minutes": 10,
+    "servings": 1,
     "steps": [
-      "Marinate chicken with spices.",
-      "Cook with coconut and curry leaves.",
-      "Simmer until tender, serve with rice."
+      "Whisk eggs with onions, chilies, coriander, turmeric, and salt.",
+      "Melt a large cube of butter on a hot tawa and pour the mixture.",
+      "Place two slices of bread on top of the wet egg, flip when set, and fold the edges over the bread."
+    ]
+  },
+  {
+    "id": 39,
+    "title": "Hyderabadi Mutton Haleem",
+    "ingredients": ["500g mutton", "1 cup broken wheat (dalia)", "1/2 cup barley", "urad dal", "ghee", "fried onions", "rose petals", "spices"],
+    "tools": ["heavy bottom pot", "wooden masher (ghotni)"],
+    "tags": ["non-veg", "indian", "hyderabadi", "festive"],
+    "minutes": 240,
+    "servings": 6,
+    "steps": [
+      "Soak wheat and lentils for 4 hours.",
+      "Cook meat with spices until falling off the bone; remove bones and mash meat.",
+      "Cook wheat/lentils until mushy, combine with meat, and mash continuously with ghee until a thick, elastic consistency is reached."
+    ]
+  },
+  {
+    "id": 40,
+    "title": "Puran Poli (Maharashtrian)",
+    "ingredients": ["1 cup chana dal", "1 cup jaggery", "2 cups wheat flour", "cardamom powder", "nutmeg", "ghee"],
+    "tools": ["rolling pin", "tava", "strainer"],
+    "tags": ["vegetarian", "indian", "maharashtrian", "dessert"],
+    "minutes": 60,
+    "servings": 5,
+    "steps": [
+      "Boil chana dal, drain water, and cook with jaggery until it forms a thick paste (Puran).",
+      "Sieve the paste to remove lumps and add cardamom/nutmeg.",
+      "Stuff a portion of puran into wheat dough, roll thin, and roast on a tava with plenty of ghee."
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Kashmiri Wazwan Rogan Josh",
+    "ingredients": ["500g lamb", "ratanjot (natural red color)", "yogurt", "fennel powder", "ginger powder", "mustard oil"],
+    "tools": ["pot", "ladle"],
+    "tags": ["non-veg", "indian", "kashmiri", "royal"],
+    "minutes": 90,
+    "servings": 4,
+    "steps": [
+      "Sear lamb in mustard oil with whole spices.",
+      "Add yogurt whisked with ginger and fennel powder; cook on low heat.",
+      "Infuse with ratanjot oil for the signature deep red color and simmer until meat is tender."
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Goan Fish Curry",
+    "ingredients": ["fish steaks", "fresh coconut", "dried red chilies", "tamarind", "coriander seeds", "kokum"],
+    "tools": ["grinder", "clay pot"],
+    "tags": ["non-veg", "indian", "goan", "coastal"],
+    "minutes": 30,
+    "servings": 3,
+    "steps": [
+      "Grind coconut, red chilies, tamarind, and coriander seeds into a fine orange paste.",
+      "Bring the paste to a boil with water and kokum.",
+      "Add fish pieces and simmer for 5-7 minutes until cooked."
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Mysore Masala Dosa",
+    "ingredients": ["dosa batter", "potato masala", "spicy red chutney (chana dal & garlic)", "butter"],
+    "tools": ["flat tawa", "spatula"],
+    "tags": ["vegetarian", "indian", "south-indian", "breakfast"],
+    "minutes": 15,
+    "servings": 2,
+    "steps": [
+      "Spread dosa batter thin on a hot tawa.",
+      "Apply a generous amount of butter and spread the spicy red chutney over the surface.",
+      "Place potato masala in the center, fold, and cook until the base is dark golden and crispy."
+    ]
+  },
+  {
+    "id": 44,
+    "title": "Lucknowi Veg Shami Kebab",
+    "ingredients": ["1 cup kala chana (black chickpeas)", "1 potato", "ginger-garlic paste", "shami masala", "mint leaves", "ghee"],
+    "tools": ["pressure cooker", "grinder", "pan"],
+    "tags": ["vegetarian", "indian", "awadhi", "starter"],
+    "minutes": 50,
+    "servings": 4,
+    "steps": [
+      "Pressure cook chickpeas and potato with spices until soft.",
+      "Grind to a very smooth paste without adding much water.",
+      "Mix in chopped mint and onions, shape into patties, and shallow fry in ghee."
+    ]
+  },
+  {
+    "id": 45,
+    "title": "Amritsari Kulcha",
+    "ingredients": ["refined flour (maida)", "boiled potatoes", "anardana powder", "green chilies", "lots of butter"],
+    "tools": ["tandoor or oven", "mixing bowl"],
+    "tags": ["vegetarian", "indian", "punjabi", "classic"],
+    "minutes": 45,
+    "servings": 3,
+    "steps": [
+      "Knead a multi-layered flaky dough using flour and butter.",
+      "Stuff with a spicy mashed potato mixture containing anardana (pomegranate seeds).",
+      "Bake until crisp and top with a large dollop of white butter."
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Assamese Masor Tenga",
+    "ingredients": ["river fish", "cherry tomatoes", "lemon juice", "panch phoron", "mustard oil", "turmeric"],
+    "tools": ["kadai"],
+    "tags": ["non-veg", "indian", "assamese", "sour"],
+    "minutes": 25,
+    "servings": 2,
+    "steps": [
+      "Fry turmeric-coated fish and set aside.",
+      "Sauté tomatoes with panch phoron until mushy.",
+      "Add water to make a thin broth, add fish and lemon juice for a refreshing sour taste."
+    ]
+  },
+  {
+    "id": 47,
+    "title": "Rajasthani Laal Maas",
+    "ingredients": ["500g mutton", "mathania red chilies", "mustard oil", "garlic paste", "curd", "charcoal for dhungar"],
+    "tools": ["handi", "charcoal"],
+    "tags": ["non-veg", "indian", "rajasthani", "spicy"],
+    "minutes": 110,
+    "servings": 4,
+    "steps": [
+      "Soak Mathania chilies and grind to a paste.",
+      "Slow cook mutton with garlic, chili paste, and oil in a handi.",
+      "Smoke the curry with a burning charcoal piece and ghee (Dhungar) to get a traditional smoky finish."
+    ]
+  },
+  {
+    "id": 48,
+    "title": "Pani Puri (Gol Gappa)",
+    "ingredients": ["semolina puris", "boiled potatoes", "black chickpeas", "tamarind pulp", "mint", "green chilies", "chaat masala"],
+    "tools": ["mixing bowl", "blender"],
+    "tags": ["vegan", "indian", "street-food", "snack"],
+    "minutes": 30,
+    "servings": 5,
+    "steps": [
+      "Prepare 'teekha pani' by blending mint, chilies, and lemon with water.",
+      "Prepare 'meetha pani' with tamarind and jaggery.",
+      "Poke a hole in the puri, fill with potato-chickpea mix, dip in both waters, and serve instantly."
+    ]
+  },
+  {
+    "id": 49,
+    "title": "Kerala Puttu and Kadala Curry",
+    "ingredients": ["rice flour", "grated coconut", "black chickpeas", "coconut milk", "curry leaves", "mustard seeds"],
+    "tools": ["puttu kutti (steamer)", "pressure cooker"],
+    "tags": ["vegan", "indian", "kerala", "breakfast"],
+    "minutes": 45,
+    "servings": 3,
+    "steps": [
+      "Steam layers of moistened rice flour and grated coconut in a cylindrical Puttu maker.",
+      "Cook black chickpeas in a spicy coconut-based gravy.",
+      "Serve the steamed Puttu with the Kadala curry and a small banana."
+    ]
+  },
+  {
+    "id": 50,
+    "title": "Banarasi Kachori Sabzi",
+    "ingredients": ["whole wheat flour", "urad dal paste", "potatoes", "hing (asafoetida)", "black pepper", "ghee"],
+    "tools": ["kadai", "rolling pin"],
+    "tags": ["vegetarian", "indian", "uttar-pradesh", "street-food"],
+    "minutes": 50,
+    "servings": 4,
+    "steps": [
+      "Make small puris stuffed with spicy urad dal (Kachori).",
+      "Prepare a thin, spicy potato curry (Sabzi) heavily flavored with hing and black pepper.",
+      "Deep fry kachoris until crisp and serve hot with the watery potato curry."
     ]
   }
 ]

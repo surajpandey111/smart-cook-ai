@@ -10,68 +10,87 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Gemini client
-client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+# -----------------------------
+# GEMINI CLIENT (2.5 LITE)
+# -----------------------------
+API_KEY = os.getenv("GOOGLE_API_KEY")
 
-# Fast and cheap model
-CHAT_MODEL = "gemini-2.5-flash-lite"
+if not API_KEY:
+    raise ValueError("❌ GOOGLE_API_KEY missing")
+
+client = genai.Client(api_key=API_KEY)
+
+CHAT_MODEL = "gemini-3-flash-preview"
 
 
 # -----------------------------
-# EMBEDDING FUNCTION
+# EMBEDDING (LAZY LOAD)
 # -----------------------------
+embedding_model = None
+
+def get_embedding_model():
+    global embedding_model
+
+    if embedding_model is None:
+        try:
+            from sentence_transformers import SentenceTransformer
+            embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+            logger.info("✅ Embedding model loaded")
+        except Exception as e:
+            logger.error(f"Embedding load error: {e}")
+            embedding_model = None
+
+    return embedding_model
+
+
 def embed_text(text: str):
-    """
-    Returns deterministic embedding vector for FAISS compatibility
-    FAISS index dimension = 768
-    """
-
     try:
-        import numpy as np
+        model = get_embedding_model()
 
-        np.random.seed(abs(hash(text)) % (10**6))
+        if model is None:
+            raise ValueError("Embedding model not available")
 
-        return np.random.rand(768).astype("float32").tolist()
+        return model.encode(text).astype("float32").tolist()
 
     except Exception as e:
-        logger.error(f"Embedding fallback error: {str(e)}")
-        return [0.0] * 768
+        logger.error(f"Embedding error: {e}")
+        return [0.0] * 384
 
 
 # -----------------------------
-# CHAT FUNCTION
+# CHAT FUNCTION (2.5 LITE)
 # -----------------------------
 def chat(system_prompt: str, user_prompt: str):
 
-    prompt = system_prompt + "\n\n" + user_prompt
+    for attempt in range(3):
+        try:
+            response = client.models.generate_content(
+                model=CHAT_MODEL,
+                contents=f"{system_prompt}\n\n{user_prompt}"
+            )
 
-    try:
+            if hasattr(response, "text") and response.text:
+                return response.text
 
-        # avoid rate limits
-        time.sleep(1)
+            return json.dumps({
+                "score": 50,
+                "substituted_ingredients": {},
+                "adapted_steps": ["Empty response"],
+                "reason": "No text"
+            })
 
-        response = client.models.generate_content(
-            model=CHAT_MODEL,
-            contents=prompt
-        )
+        except Exception as e:
+            logger.error(f"Gemini error: {e}")
 
-        if hasattr(response, "text"):
-            return response.text
+            # 🔥 HANDLE QUOTA ERROR
+            if "429" in str(e):
+                time.sleep(40)  # wait and retry
+            else:
+                break
 
-        return json.dumps({
-            "score": 50,
-            "substituted_ingredients": {},
-            "adapted_steps": ["No response generated"],
-            "reason": "Gemini returned empty response"
-        })
-
-    except Exception as e:
-
-        logger.error(f"Gemini error: {str(e)}")
-
-        return json.dumps({
-            "score": 50,
-            "substituted_ingredients": {},
-            "adapted_steps": ["AI service temporarily unavailable"],
-            "reason": f"Gemini API error: {str(e)}"
-        })
+    return json.dumps({
+        "score": 50,
+        "substituted_ingredients": {},
+        "adapted_steps": ["AI error"],
+        "reason": "Retry failed"
+    })

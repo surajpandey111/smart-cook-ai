@@ -1,202 +1,254 @@
 import os
 import json
+import re
 import streamlit as st
 from dotenv import load_dotenv
-from typing import Set
 from functools import lru_cache
 
 from utils.llm import chat
 from utils.retrieval import load_recipes, search
-from utils.rules import violates_allergens, violates_diet, propose_substitutions
+from utils.rules import violates_allergens, violates_diet
+from utils.agent import decide_strategy
 
 load_dotenv()
 
+# ---------------- PAGE CONFIG ----------------
 st.set_page_config(
-    page_title="Agentic AI System for Smart Personal Cooking Assistant",
+    page_title="Smart Cooking AI",
     page_icon="🍳",
     layout="wide"
 )
 
-# ---------- UI STYLE ----------
+# ---------------- HEADER ----------------
 st.markdown("""
-<style>
-.main {background-color:#ffffff;color:#000}
-.stApp {background-color:#ffffff}
-.title {text-align:center;font-size:40px;font-weight:bold;padding:20px}
-.section-header {font-size:24px;font-weight:bold;margin-bottom:10px}
-.footer {text-align:center;font-size:12px;margin-top:20px}
-</style>
+<h1 style='text-align:center;'>🍳 Smart Cooking AI</h1>
+<p style='text-align:center;color:gray;font-size:18px;'>
+Agentic AI System for Smart Personal Cooking Assistant
+</p>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="title">Agentic AI System for Smart Personal Cooking Assistant</div>', unsafe_allow_html=True)
+# ---------------- JSON EXTRACTOR ----------------
+def extract_json(text):
+    try:
+        match = re.search(r"\{.*\}", text, re.DOTALL)
+        if match:
+            return json.loads(match.group())
+    except:
+        pass
+    return None
 
-st.markdown('<p style="text-align:center;">Developed by <b>Suraj Kumar Pandey</b> under mentorship of <b>Prof. B.K Tripathi & Dr.Sukhendra Singh Sir </b></p>', unsafe_allow_html=True)
-
-
-# ---------- CACHE ----------
+# ---------------- CACHE ----------------
 @lru_cache(maxsize=100)
 def cached_chat(system_prompt, user_prompt):
     return chat(system_prompt, user_prompt)
 
+# ---------------- SIDEBAR ----------------
+st.sidebar.title("User Profile")
 
-# ---------- SIDEBAR ----------
-st.sidebar.header("User Profile")
+# ✅ NEW: CUISINE FILTER
+cuisine = st.sidebar.selectbox(
+    "Cuisine Preference",
+    ["All", "Indian", "Global"]
+)
 
-ethnicity = st.sidebar.selectbox("Cuisine Preference", ["Global","Indian"])
 diet = st.sidebar.selectbox("Diet", ["vegetarian","eggetarian","vegan","non-veg"])
-allergies = st.sidebar.multiselect("Allergies", ["nuts","gluten","dairy","eggs"])
 
-dislike_text = st.sidebar.text_input("Dislikes (comma separated)")
-dislikes = [x.strip().lower() for x in dislike_text.split(",") if x]
+allergies = st.sidebar.multiselect("Allergies", ["nuts","gluten","dairy","eggs"])
 
 tools = st.sidebar.multiselect(
     "Available Tools",
-    ["stovetop","microwave","oven","pan","pressure cooker","airfryer","knife","bowl"],
-    default=["stovetop","pan","knife","bowl"]
+    ["stovetop","microwave","oven","pan","knife","bowl"],
+    default=["stovetop","pan"]
 )
 
-minutes = st.sidebar.slider("Max cooking time",5,120,30)
-servings = st.sidebar.slider("Servings",1,10,2)
+minutes = st.sidebar.slider("Max Cooking Time", 5, 120, 30)
 
-
-# ---------- INVENTORY ----------
-st.markdown('<div class="section-header">Inventory Input</div>', unsafe_allow_html=True)
+# ---------------- INVENTORY ----------------
+st.subheader("Inventory Input")
 
 inventory_text = st.text_area(
     "Enter ingredients",
     "paneer, yogurt, onion, capsicum, roti, tomato, lemon"
 )
 
-inventory = set([x.strip().lower() for x in inventory_text.split(",") if x])
+inventory = set(x.strip().lower() for x in inventory_text.split(",") if x)
 
+def clean_ing(x):
+    return x.lower().split()[0]
 
-# ---------- BUTTON ----------
-if st.button("🔎 Find Recipes"):
+# ---------------- BUTTON ----------------
+if st.button("🔍 Find Recipes"):
 
-    # RETRIEVE
-    ids, sims = search(" ".join(inventory), k=3)
+    strategy = decide_strategy(inventory, diet, set(allergies))
+
+    # ---------------- CREATIVE MODE ----------------
+    if strategy == "creative_generation":
+
+        st.warning("⚡ Generating recipe from scratch...")
+
+        system = """
+You are a professional chef.
+
+Create a simple practical recipe using given ingredients.
+"""
+
+        user_prompt = f"""
+Ingredients: {inventory}
+Diet: {diet}
+Time: {minutes}
+Tools: {tools}
+"""
+
+        result = chat(system, user_prompt)
+        st.write(result)
+        st.stop()
+
+    # ---------------- RETRIEVAL (IMPROVED QUERY) ----------------
+    query = " ".join(inventory) + f" {diet} {cuisine}"
+    ids, sims = search(query, k=5)
 
     all_recipes = {r["id"]: r for r in load_recipes()}
     candidates = [all_recipes[i] for i in ids if i in all_recipes]
 
     filtered = []
 
+    # ---------------- FILTERING ----------------
     for r in candidates:
 
-        if r.get("minutes",9999) > minutes:
+        # ⏱ TIME FILTER
+        if r.get("minutes", 9999) > minutes:
             continue
 
+        # 🥗 DIET
         if violates_diet(r["ingredients"], diet):
             continue
 
+        # ⚠️ ALLERGY
         if violates_allergens(r["ingredients"], set(allergies)):
             continue
 
-        if ethnicity=="Indian" and "indian" not in r.get("tags",[]):
-            continue
+        # 🌍 CUISINE FILTER (NEW)
+        if cuisine != "All":
+            tags = [t.lower() for t in r.get("tags", [])]
 
-        if any(d in [i.lower() for i in r["ingredients"]] for d in dislikes):
-            continue
+            if cuisine.lower() == "indian" and "indian" not in tags:
+                continue
+
+            if cuisine.lower() == "global" and "indian" in tags:
+                continue
 
         filtered.append(r)
 
     if not filtered:
-        st.warning("No perfect matches found. Showing closest recipes.")
         filtered = candidates
 
-    # ---------- LLM RANK ----------
+    # ---------------- LLM PROMPT ----------------
     system = """
-You are a cooking assistant.
+You are a professional chef AI.
 
-Return JSON:
+Your job:
+- Adapt recipe using available ingredients
+- Replace missing ingredients smartly
+- Simplify cooking steps
+- Make it practical for real cooking
+
+STRICT:
+- Return ONLY valid JSON
+- No extra text
+
+FORMAT:
 {
-score:int,
-substituted_ingredients:dict,
-adapted_steps:list,
-reason:string
+"score": int (0-100),
+"substituted_ingredients": {"original":"replacement"},
+"adapted_steps": ["step1","step2"],
+"reason": "short explanation"
 }
 """
 
     results = []
 
-    for r in filtered[:3]:
+    # ---------------- PROCESS ----------------
+    for idx, r in enumerate(filtered[:1]):  # keep 1 for quota safety
 
-        subs = propose_substitutions(r["ingredients"], inventory, diet, set(allergies))
-
-        missing = [i for i in r["ingredients"] if i.lower() not in inventory]
+        missing = [i for i in r["ingredients"] if clean_ing(i) not in inventory]
 
         user_prompt = f"""
-PROFILE
-diet:{diet}
-tools:{tools}
-time:{minutes}
+Diet: {diet}
+Cuisine: {cuisine}
+Tools: {tools}
+Time: {minutes}
 
-INVENTORY
-{inventory}
+Inventory: {inventory}
 
-RECIPE
-title:{r['title']}
-ingredients:{r['ingredients']}
-steps:{r['steps']}
+Recipe:
+{r}
 
-MISSING
+Missing:
 {missing}
 """
 
-        try:
+        txt = cached_chat(system, user_prompt)
 
-            txt = cached_chat(system,user_prompt)
+        data = extract_json(txt)
 
-            data = json.loads(txt)
-
-        except:
+        if not data:
+            st.warning("⚠️ AI parsing failed")
+            st.code(txt)
 
             data = {
-                "score":50,
-                "substituted_ingredients":subs,
-                "adapted_steps":r["steps"],
-                "reason":"Fallback recipe"
+                "score": 50,
+                "substituted_ingredients": {},
+                "adapted_steps": r["steps"],
+                "reason": "Fallback used"
             }
 
-        results.append((r,data))
+        sim_score = sims[idx]
+        inv_match = len(set(clean_ing(i) for i in r["ingredients"]) & inventory) / len(r["ingredients"])
+        llm_score = data.get("score", 50) / 100
 
-    results.sort(key=lambda x:x[1].get("score",0),reverse=True)
+        final_score = 0.5 * sim_score + 0.3 * llm_score + 0.2 * inv_match
 
-    # ---------- DISPLAY ----------
-    st.markdown('<div class="section-header">Recommended Recipes</div>', unsafe_allow_html=True)
+        results.append((r, data, final_score))
 
-    seen: Set[str] = set()
+    results.sort(key=lambda x: x[2], reverse=True)
 
-    for r,data in results:
+    # ---------------- DISPLAY ----------------
+    st.subheader("🍽️ Recommended Recipes")
 
-        if r["title"] in seen:
-            continue
+    for r, data, score in results:
 
-        seen.add(r["title"])
+        with st.container():
 
-        st.subheader(f"{r['title']} (Score {data.get('score')})")
+            st.markdown(f"### {r['title']}")
 
-        col1,col2 = st.columns(2)
+            # 🌍 SHOW TAGS
+            tags = ", ".join(r.get("tags", []))
+            st.caption(f"🌍 {tags}")
 
-        with col1:
+            col1, col2 = st.columns([2,1])
 
-            st.markdown("**Ingredients**")
-            st.write(", ".join(r["ingredients"]))
+            with col1:
+                st.markdown("**🧾 Ingredients**")
+                st.write(", ".join(r["ingredients"]))
 
-            if data.get("substituted_ingredients"):
-                st.markdown("**Substitutions**")
-                st.json(data["substituted_ingredients"])
+                st.markdown("**👨‍🍳 Steps**")
+                for i, s in enumerate(data.get("adapted_steps", r["steps"]), 1):
+                    st.write(f"{i}. {s}")
 
-        with col2:
+            with col2:
+                st.metric("Score", int(score * 100))
 
-            st.markdown("**Why This Recipe?**")
-            st.write(data.get("reason",""))
+                missing = [i for i in r["ingredients"] if clean_ing(i) not in inventory]
 
-            st.markdown("**Steps**")
+                st.markdown("**❌ Missing**")
+                st.write(missing)
 
-            for i,step in enumerate(data.get("adapted_steps",r["steps"]),1):
-                st.write(f"{i}. {step}")
+                st.markdown("**🔁 Substitutions**")
+                st.write(data.get("substituted_ingredients", {}))
 
+            st.markdown("**🧠 Why this recipe?**")
+            st.info(data.get("reason", "No explanation"))
 
-# ---------- FOOTER ----------
-st.markdown('<div class="footer">© 2025 Smart Cooking AI</div>', unsafe_allow_html=True)
+            st.progress(data.get("score", 50)/100)
+
+            st.divider()
